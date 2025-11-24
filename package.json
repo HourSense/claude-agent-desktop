@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "node scripts/preDev.js && electron-vite dev",
     "build": "electron-vite build",
-    "build:mac": "bun run build && electron-builder --mac",
-    "build:win": "bun run build && electron-builder --win",
+    "build:mac": "bun run build && electron-builder --mac --publish always",
+    "build:win": "bun run build && electron-builder --win --publish always",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --cache --cache-location .eslintcache --max-warnings=0",
     "test": "bun test",
