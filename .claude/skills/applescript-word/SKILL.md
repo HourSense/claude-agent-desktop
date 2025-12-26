@@ -29,9 +29,12 @@ osascript -e 'tell application "Microsoft Word"
 end tell'
 ```
 
-Or use the helper:
+**ALWAYS compile first, then execute** (ensures syntax is correct):
 ```bash
-python scripts/execute_applescript.py "your AppleScript code"
+# Step 1: Compile to check syntax (fails if invalid)
+osacompile -o /tmp/test.scpt -e 'your AppleScript code' && \
+# Step 2: Only execute if compilation succeeded
+osascript -e 'your AppleScript code'
 ```
 
 ## Critical Syntax Rules

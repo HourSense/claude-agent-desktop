@@ -38,9 +38,12 @@ osascript -e 'tell application "Microsoft Excel"
 end tell'
 ```
 
-Or use the helper script:
+**ALWAYS compile first, then execute** (ensures syntax is correct):
 ```bash
-python scripts/execute_applescript.py "your AppleScript code here"
+# Step 1: Compile to check syntax (fails if invalid)
+osacompile -o /tmp/test.scpt -e 'your AppleScript code here' && \
+# Step 2: Only execute if compilation succeeded
+osascript -e 'your AppleScript code here'
 ```
 
 ## Common Patterns
